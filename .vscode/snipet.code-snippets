@@ -1,0 +1,419 @@
+{
+	"Create SectionList": {
+		"scope": "javascript,typescript",
+		"prefix": "SectionList",
+		"body": [
+		  "<SectionList",
+		  "  sections={DATA}",
+		  "  keyExtractor={(item, index) => index.toString()}", // Assuming you want to use the index as the key
+		  "  renderItem={({ item }) => (",
+		  "    <View style={styles.item}>",
+		  "      <Text style={styles.title}>{item}</Text>",
+		  "    </View>",
+		  "  )}",
+		  "  renderSectionHeader={({ section: { title } }) => (",
+		  "    <Text style={styles.header}>{title}</Text>",
+		  "  )}",
+		  "/>"
+		],
+		"description": "Create SectionList"
+	  },
+		"Import Navigation": {
+		  "scope": "javascript,typescript",
+		  "prefix": "importApp",
+		  "body": [
+			"import { NavigationContainer } from '@react-navigation/native';",
+			"import { createNativeStackNavigator } from '@react-navigation/native-stack';",
+			"",
+			"const Stack = createNativeStackNavigator();"
+		  ],
+		  "description": "Import Navigation"
+		},
+	  
+	  
+
+	"Create Navigation Container": {
+		"scope": "javascript,typescript",
+		"prefix": "router",
+		"body": [
+		  "<NavigationContainer>",
+		  "  <Stack.Navigator",
+		  "    screenOptions={{",
+		  "      headerShown: false,",
+		  "    }}",
+		  "  >",
+		  "    <Stack.Screen name=\"$1\" component={$1} />",
+		  "    <Stack.Screen name=\"$2\" component={$2} />",
+		  "  </Stack.Navigator>",
+		  "</NavigationContainer>"
+		],
+		"description": "Create Navigation Container"
+	  },
+  "Create Import": {
+    "scope": "javascript,typescript",
+    "prefix": "import",
+    "body": [
+      "import { View, Text, Image, Button, Pressable, TextInput, FlatList, ScrollView } from 'react-native';"
+    ],
+    "description": "Create import"
+  },
+
+
+
+	"Create Tag View": {
+	  "scope": "javascript,typescript",
+	  "prefix": "V",
+	  "body": [
+		"<View style={{ $0 }}>$1</View>"
+	  ],
+	  "description": "Create Tag View"
+	},
+	"Create Text Component": {
+	  "scope": "javascript,typescript",
+	  "prefix": "T",
+	  "body": [
+		"<Text style={{ $0 }}>$1</Text>"
+	  ],
+	  "description": "Create Text Component"
+	},
+	"Create Image Component": {
+	  "scope": "javascript,typescript",
+	  "prefix": "I",
+	  "body": [
+		"<Image source={$0} style={{ width: , height: }} />"
+	  ],
+	  "description": "Create Image Component"
+	},
+	"Create ScrollView": {
+	  "scope": "javascript,typescript",
+	  "prefix": "SC",
+	  "body": [
+		"<ScrollView style={{ $0 }}>$1</ScrollView>"
+	  ],
+	  "description": "Create ScrollView"
+	},
+	"Create FlatList": {
+	  "scope": "javascript,typescript",
+	  "prefix": "FL",
+	  "body": [
+		"<FlatList",
+		"  data={$0}",
+		"  renderItem={({ item }) => ($1)}",
+		"  keyExtractor={(item) => item.id.toString()",
+		"  $2",
+		"/>"
+	  ],
+	  "description": "Create FlatList"
+	},
+	"Create Pressable": {
+		"scope": "javascript,typescript",
+		"prefix": "P",
+		"body": [
+		  "<Pressable style={{ $1 }} onPress={() => { $2 }}> <Text style={{ $4 }}> $0 </Text> </Pressable>"
+		],
+		"description": "Create Pressable"
+	  },
+	  "Create Pressable router": {
+		"scope": "javascript,typescript",
+		"prefix": "Prouter",
+		"body": [
+			"<Pressable style={{ $1 }} onPress={() => navigation.navigate('Screen',{})}> <Text style={{ $4 }}> $0 </Text> </Pressable>"
+		],
+		"description": "Create Pressable"
+	  },
+   
+	  "Create Button": {
+		"scope": "javascript,typescript",
+		"prefix": "B",
+		"body": [
+		  "<Button title=\"$1\" onPress={() => { $2 }} style={{ $0 }} />"
+		],
+		"description": "Create Button"
+	  },
+	  "Create TextInput": {
+		"scope": "javascript,typescript",
+		"prefix": "TI",
+		"body": [
+		  "<TextInput",
+		  "  style={{ $0 }}",
+		  "  onChangeText={(text) => { $1 }}",
+		  "  value={$2}",
+		  "  placeholder=\"$3\"",
+		  "/>"
+		],
+		"description": "Create TextInput"
+	  },
+	  "CRUD Operations": {
+		"scope": "javascript,typescript",
+		"prefix": "crudAPI",
+		"body": [
+		  "const fetch = async () => {",
+		  "  try {",
+		  "    const res = await axios.get('https://6540a3af45bedb25bfc23aa3.mockapi.io/api/v1/Todos');",
+		  "    if (res.data) {",
+		  "      setTodos(res.data);",
+		  "    }",
+		  "  } catch (error) {",
+		  "    console.log(error);",
+		  "  }",
+		  "};",
+		  "",
+		  "const handleDelete = async (id) => {",
+		  "  try {",
+		  "    const res = await axios.delete('https://6540a3af45bedb25bfc23aa3.mockapi.io/api/v1/Todos/'+id);",
+		  "    if (res.data) {",
+		  "      fetchTodo();",
+		  "    }",
+		  "  } catch (error) {",
+		  "    console.log(error);",
+		  "  }",
+		  "};",
+		  "",
+		  "const handleAdd = async (obj) => {",
+		  "  try {",
+		  "    const res = await axios.post('https://6540a3af45bedb25bfc23aa3.mockapi.io/api/v1/Todos', obj);",
+		  "    if (res.data) {",
+		  "      fetchTodo();",
+		  "    }",
+		  "  } catch (error) {",
+		  "    console.log(error);",
+		  "  }",
+		  "};",
+		  "",
+		  "const handlePut = async (obj,id) => {",
+		  "  try {",
+		  "    const res = await axios.put('https://6540a3af45bedb25bfc23aa3.mockapi.io/api/v1/Todos/'+id, obj);",
+		  "    if (res.data) {",
+		  "      fetchTodo();",
+		  "    }",
+		  "  } catch (error) {",
+		  "    console.log(error);",
+		  "  }",
+		  "};"
+		],
+		"description": "CRUD Operations for Todos"
+	  },
+	  "Redux Store": {
+		"scope": "javascript,typescript",
+		"prefix": "reduxStoreCRUD",
+		"body": [
+		  "import { createStore } from 'redux';",
+		  "",
+		  "const initState = [];",
+		  "",
+		  "const reducer = (state = initState, action) => {",
+		  "  switch (action.type) {",
+		  "    case 'api':",
+		  "      return action.payload;",
+		  "    case 'add':",
+		  "      return [...state, action.payload];",
+		  "    case 'delete':",
+		  "      return [...state.filter((item) => item.id !== action.payload)];",
+		  "    case 'update':",
+		  "      const { id, name, role } = action.payload;",
+		  "      state.forEach((item) => {",
+		  "        if (item.id === id) {",
+		  "          item.name = name;",
+		  "          item.role = role;",
+		  "        }",
+		  "      });",
+		  "      return [...state];",
+		  "    default:",
+		  "      return state;",
+		  "  }",
+		  "};",
+		  "",
+		  "const store = createStore(reducer);",
+		  "",
+		  "export default store;"
+		],
+		"description": "Redux Store"
+	  },
+	  "React Native Component": {
+		"scope": "javascript,typescript",
+		"prefix": "ffc",
+		"body": [
+		  "import { View, Text, Image, Button, Pressable, TextInput, FlatList, ScrollView } from 'react-native';",
+		  "",
+		  "export default function Name$1({navigation}) {",
+		  "  return (",
+		  "    <View>",
+		  "      {/* Your component content goes here */}",
+		  "    </View>",
+		  "  );",
+		  "}"
+		],
+		"description": "React Native Component"
+	  },
+	  "Redux Dispatch Example": {
+		"scope": "javascript,typescript",
+		"prefix": "btnRemove",
+		"body": [
+		  "<Pressable",
+		  "  style={{width:'50%', backgroundColor:'red'}}",
+		  "  onPress={() => {",
+		  "    store.dispatch({ type: 'delete', payload: 'YOUR_PAYLOAD' });",
+		  "    setData(store.getState());",
+		  "  }}>",
+		  "  <Text style={{color:'white'}}>Xóa</Text>",
+		  "</Pressable>"
+		],
+		"description": "Redux Dispatch Example"
+	  },
+	  "Update State Example": {
+		"scope": "javascript,typescript",
+		"prefix": "btnEdit",
+		"body": [
+		  "<Pressable",
+		  "  style={{width:'50%', backgroundColor:'blue'}}",
+		  "  onPress={() => {",
+		  "    setName(/*your value*/);",
+		  "    setRole(/*your value*/);",
+		  "    setEditID(/*your value*/);",
+		  "  }}>",
+		  "  <Text style={{color:'white'}}>Sửa</Text>",
+		  "</Pressable>"
+		],
+		"description": "Update State Example"
+	  },
+	  "Redux Add Button": {
+		"scope": "javascript,typescript",
+		"prefix": "btnAdd",
+		"body": [
+		  "<Button",
+		  "  title='Add'",
+		  "  onPress={() => {",
+		  "    store.dispatch({",
+		  "      type: 'add',",
+		  "      payload: { id: Date.now() },",
+		  "    });",
+		  "    setData(store.getState());",
+		  "  }}",
+		  "  style={{ /* your style here */ }}",
+		  "/>"
+		],
+		"description": "Redux Add Button"
+	  },
+	  "Redux Edit Button": {
+		"scope": "javascript,typescript",
+		"prefix": "btnEditMain",
+		"body": [
+		  "<Button",
+		  "  title='Edit'",
+		  "  onPress={() => {",
+		  "    store.dispatch({",
+		  "      type: 'update',",
+		  "      payload: {  },",
+		  "    });",
+		  "    setData(store.getState());",
+		  "  }}",
+		  "  style={{ /* your style here */ }}",
+		  "/>"
+		],
+		"description": "Redux Edit Button"
+	  },
+	  "Login1/3": {
+		"scope": "javascript,typescript",
+		"prefix": "login",
+		"body": [" const handleLogin =()=>{",
+		"    acc.forEach(acc=>{",
+		"        if(acc.username==username && acc.password==password){",
+		"            store.dispatch({type:\"save\",payload:acc})",
+		"            navigation.navigate(\"dictionary\")",
+		"            return;",
+		"        }})}}"		],
+		"description": "Hd"
+	  },
+	  "React Native ScreenCRUDredux": {
+		"scope": "javascript,typescript",
+		"prefix": "ScreenCRUDRedux",
+		"body": [
+		  "import {",
+		  "  View,",
+		  "  Text,",
+		  "  Image,",
+		  "  Button,",
+		  "  Pressable,",
+		  "  TextInput,",
+		  "  FlatList,",
+		  "  ScrollView,",
+		  "} from 'react-native';",
+		  "import { useEffect, useState } from 'react';",
+		  "import axios from 'axios';",
+		  "import store from './redux';",
+		  "",
+		  "export default function Screen2({ navigation }) {",
+		  "  const [data, setData] = useState(store.getState());",
+		  "  const [name, setName] = useState('');",
+		  "  const [role, setRole] = useState('');",
+		  "  const [editID, setEditID] = useState(0);",
+		  "  ",
+		  "  return (",
+		  "    <View>",
+		  "      <TextInput",
+		  "        onChangeText={(text) => setName(text)}",
+		  "        value={name}",
+		  "        placeholder='name'",
+		  "      />",
+		  "      <TextInput",
+		  "        onChangeText={(text) => setRole(text)}",
+		  "        value={role}",
+		  "        placeholder='role'",
+		  "      />",
+		  "      ",
+		  "      <Button",
+		  "        title='Add'",
+		  "        onPress={() => {",
+		  "          store.dispatch({",
+		  "            type: 'add',",
+		  "            payload: { id: Date.now(), name, role },",
+		  "          });",
+		  "          setData(store.getState());",
+		  "        }}",
+		  "      />",
+		  "      ",
+		  "      <Button",
+		  "        title='edit'",
+		  "        onPress={() => {",
+		  "          store.dispatch({",
+		  "            type: 'update',",
+		  "            payload: { id: editID, name, role },",
+		  "          });",
+		  "          setData(store.getState());",
+		  "        }}",
+		  "      />",
+		  "      {data.map((item, index) => (",
+		  "        <View key={index} style={{ borderWidth: 1 }}>",
+		  "          <Text style={{}}>{item.id}</Text>",
+		  "          <Text style={{}}>{item.name}</Text>",
+		  "          <Text style={{}}>{item.role}</Text>",
+		  "          <Button",
+		  "            title='Edit'",
+		  "            onPress={() => {",
+		  "              setName(item.name);",
+		  "              setRole(item.role);",
+		  "              setEditID(item.id);",
+		  "            }}",
+
+		  "          />",
+		  "          <Pressable",
+		  "            style={{ width: '50%', backgroundColor: 'red' }}",
+		  "            onPress={() => {",
+		  "              store.dispatch({ type: 'delete', payload: item.id });",
+		  "              setData(store.getState());",
+		  "            }}>",
+		  "            <Text style={{ color: 'white' }}>Xóa</Text>",
+		  "          </Pressable>",
+		  "        </View>",
+		  "      ))}",
+		  "    </View>",
+		  "  );",
+		  "}",
+		],
+		"description": "React Native Screen2"
+	  }
+	  
+	  
+	  
+  }
+  
